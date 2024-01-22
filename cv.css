@@ -16,6 +16,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Couleur pour h2 */
+h2 {
+    color:#CCCCB2;
+}
+
+/* Couleur pour h3 */
+h3 {
+    color: #d7d2cc;
+}
+
+
 
 
 
@@ -335,8 +346,6 @@ article {
     height: 50vh;
 }
 
-.track h2 {}
-
 ul {
     display: flex;
     gap: 2rem;
@@ -462,7 +471,6 @@ article.job {
 /* Ajustement pour corriger le problème des tailles différentes */
 .descriptif.open {
     max-height: 500px;
-    /* Ajustez selon vos besoins */
     transition: max-height 0.3s ease-in-out;
 }
 
@@ -722,7 +730,8 @@ article.job {
 .formation,
 .competences,
 .projets,
-.interets {
+.interets,
+.langues {
     /* Copiez les styles de la section "Informations personnelles" */
     position: relative;
     aspect-ratio: 3 / 4;
@@ -733,6 +742,8 @@ article.job {
     box-shadow: 0 1rem 2rem -1rem black;
     padding: 1rem;
     display: grid;
+    justify-content: start;
+    align-items: center;
     gap: 1rem;
     backdrop-filter: blur(calc(var(--cardblur, 5) * 1px));
 }
@@ -749,11 +760,78 @@ article.job {
     /* Modifier la valeur selon la couleur souhaitée */
 }
 
+/* Styles pour la barre de défilement */
+.scroll-container {
+    overflow-y: auto; /* Ajout de défilement vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 200px; /* Ajoutez une hauteur maximale pour activer le défilement */
+    padding-bottom: 16px; /* Ajout d'un espacement en bas */
+}
+
+/* Styles pour chaque compétence */
+.competence-item {
+    display: flex; /* Activer la disposition en flexbox */
+    align-items: center; /* Aligner les éléments verticalement au centre */
+    text-align: center;
+    white-space: nowrap; /* Empêche le passage à la ligne des compétences */
+}
+
+.competence-item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px; /* Ajoute un espacement à droite de l'image */
+}
+
+.competence-item p {
+    margin: 0; /* Supprime les marges par défaut du paragraphe */
+}
+
+/* Définir les couleurs de la barre de défilement */
+.scroll-container::-webkit-scrollbar {
+    width: 10px; /* Largeur de la barre de défilement */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00; /* Couleur de la poignée de la barre de défilement */
+    border-radius: 5px; /* Bord arrondi de la poignée */
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100; /* Couleur de fond de la barre de défilement */
+    border-radius: 5px; /* Bord arrondi de la piste */
+}
+
+
+
 /* PROJETS */
 
 .projets {
     --hue: 40;
     /* Modifier la valeur selon la couleur souhaitée */
+}
+
+.project-item {
+    margin-top: 20px;
+    max-height: 150px; /* Ajustez la hauteur maximale selon vos besoins */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--glow) transparent;
+}
+
+.project-item::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-item::-webkit-scrollbar-thumb {
+    background-color: var(--glow);
+    border-radius: 1rem;
+    border: 2px solid transparent;
+}
+
+.project-item::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
 
@@ -765,6 +843,48 @@ article.job {
     /* Modifier la valeur selon la couleur souhaitée */
 }
 
+/* Styles pour la barre de défilement dans Centre d'intérêts */
+.interets .scroll-container {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 200px;
+    padding-bottom: 16px;
+}
+
+.interets .interet-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.interets .interet-item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.interets .interet-item p {
+    margin: 0;
+}
+
+/* Styles pour la barre de défilement */
+.interets .scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.interets .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00;
+    border-radius: 4px;
+}
+
+.interets .scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100;
+    border-radius: 4px;
+}
+
 
 .formations {
     display: flex;
@@ -773,9 +893,56 @@ article.job {
     margin: 100px;
 }
 
-.competences_projets_interets {
+.competences_projets_interets_language {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 100px;
+}
+
+/* Styles pour la barre de défilement dans Langues */
+.langues {
+    --hue: 360;
+    /* Modifier la valeur selon la couleur souhaitée */
+}
+
+.langues .scroll-container {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 200px;
+    padding-bottom: 16px;
+}
+
+.langues .langue-item {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.langues .langue-item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.langues .langue-item p {
+    margin: 0;
+}
+
+/* Styles pour la barre de défilement */
+.langues .scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.langues .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00;
+    border-radius: 4px;
+}
+
+.langues .scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100;
+    border-radius: 4px;
 }
