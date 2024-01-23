@@ -1,0 +1,121 @@
+/* ========================
+    EXPERIENCES
+========================== */
+:root {
+    --card-width: 400px;  /* Largeur initiale de la carte d'expérience */
+    --card-width: clamp(300px, 50vmin, 600px);  /* Utilisation de la fonction clamp pour définir une largeur variable entre 300px et 600px en fonction de la taille de l'écran */
+}
+
+/* Styles pour la section de suivi des expériences */
+.track {
+    margin-top: 100px;  /* Marge supérieure pour décaler la section par rapport aux éléments précédents */
+    margin-left: 10px;  /* Marge à gauche pour l'espacement par rapport au bord de la fenêtre */
+    width: 100vw;  /* Largeur égale à la largeur de la fenêtre */
+    position: relative;  /* Position relative pour ancrer les éléments enfants */
+    height: 50vh;  /* Hauteur égale à la moitié de la hauteur de la fenêtre */
+}
+
+.track h2 {
+    font-size: 40px;  /* Taille de police pour le titre h2 des expériences */
+}
+
+/* Styles pour la liste d'expériences */
+ul {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    gap: 2rem;  /* Espacement entre les éléments de la liste */
+    padding: 0;  /* Suppression des marges internes de la liste */
+    margin: 0;  /* Suppression des marges externes de la liste */
+    scroll-behavior: smooth;  /* Activation du défilement fluide */
+    overflow-x: auto;  /* Activation de la barre de défilement horizontale en cas de dépassement du contenu */
+    max-width: 100%;  /* Largeur maximale de la liste égale à 100% */
+    list-style-type: none;  /* Suppression des puces de la liste */
+    height: 100%;  /* Hauteur égale à 100% de la section parente */
+    align-items: center;  /* Alignement vertical au centre des éléments de la liste */
+    padding-inline: 0;  /* Suppression des marges internes horizontales */
+}
+
+/* Styles pour chaque élément de la liste d'expériences */
+li {
+    scroll-snap-align: center;  /* Alignement des éléments de la liste pendant le défilement */
+    padding: 0;  /* Suppression des marges internes de chaque élément */
+    margin: 0;  /* Suppression des marges externes de chaque élément */
+}
+
+/* Styles pour chaque article représentant une expérience */
+article {
+    width: var(--card-width);  /* Largeur variable de la carte d'expérience */
+    aspect-ratio: 4 / 3;  /* Ratio aspect pour maintenir la forme rectangulaire */
+    background: radial-gradient(circle at center, hsl(0 0% 100% / 0.65), transparent) fixed,  /* Dégradé radial en arrière-plan pour un effet de transparence */
+        linear-gradient(hsl(var(--hue) 100% 0% / 0.25), transparent),  /* Dégradé linéaire en arrière-plan avec une couleur variable --hue */
+        linear-gradient(transparent, hsl(var(--hue) 0% 10% / 0.5)),  /* Dégradé linéaire en arrière-plan avec une couleur variable --hue */
+        hsl(var(--hue, 10) 0% 6%);  /* Couleur de fond avec une couleur variable --hue */
+    box-shadow: 0 1px hsl(0 0% 100% / 0.5) inset,  /* Ombre intérieure pour un effet de profondeur */
+        0 10px 20px -10px black;  /* Ombre extérieure pour un effet de profondeur */
+    border-radius: 1rem;  /* Rayon de bordure pour les coins arrondis */
+    border-top: 3px solid hsl(var(--hue, 10) 80% 60% / 0.75);  /* Bordure supérieure avec une couleur variable --hue */
+}
+
+/* Styles spécifiques pour les articles de type "job" */
+article.job {
+    position: relative;  /* Position relative pour l'ancrage des éléments enfants */
+}
+
+/* Styles pour la partie descriptive d'une expérience */
+.descriptif {
+    overflow: hidden;  /* Cacher tout contenu dépassant de la hauteur spécifiée */
+    max-height: 0;  /* Hauteur maximale initiale de 0 pour cacher la description */
+    transition: max-height 0.3s ease-in-out;  /* Transition animée pour le changement de hauteur */
+    overflow-y: auto;  /* Activation de la barre de défilement vertical en cas de dépassement du contenu */
+}
+
+/* Styles pour le bouton de bascule pour afficher la description */
+.toggle-button {
+    cursor: pointer;  /* Curseur de souris pour indiquer l'interactivité */
+    color: rgb(255, 255, 255);  /* Couleur du texte du bouton de bascule */
+    margin-top: 10px;  /* Marge supérieure pour l'espacement du bouton */
+    text-decoration: underline;  /* Soulignement du texte pour indiquer la nature du bouton */
+}
+
+/* Styles pour afficher la description lorsque l'expérience est ouverte */
+.job.open .descriptif {
+    max-height: 500px;  /* Hauteur maximale de la description lorsqu'elle est ouverte */
+}
+
+/* Styles pour afficher la description lorsque la classe "open" est appliquée */
+.descriptif.open {
+    max-height: 500px;  /* Hauteur maximale de la description lorsqu'elle est ouverte */
+    transition: max-height 0.3s ease-in-out;  /* Transition animée pour le changement de hauteur */
+}
+
+/* Barre de défilement de la description */
+.descriptif::-webkit-scrollbar {
+    width: 8px;  /* Largeur de la barre de défilement */
+}
+
+.descriptif::-webkit-scrollbar-thumb {
+    background: var(--bg);  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 1rem;  /* Arrondi des coins du pouce */
+    border: 4px solid transparent;  /* Bordure du pouce pour plus de visibilité */
+    box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset, 0 0 10px rgba(255, 255, 255, 0.3);  /* Ombre intérieure pour un effet de profondeur */
+    transform: translate3d(0, 0, 0);  /* Correction du déplacement en cas de transformation */
+    transition: background 0.3s;  /* Transition animée pour le changement de couleur de fond */
+}
+
+.descriptif::-webkit-scrollbar-track {
+    background-color: transparent;  /* Couleur de fond transparente de la piste de la barre de défilement */
+    border-radius: 1rem;  /* Arrondi des coins de la piste */
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0);  /* Ombre intérieure pour un effet de profondeur */
+}
+
+.descriptif::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--glow),  /* Dégradé linéaire pour un effet de lueur */
+        linear-gradient(black, black) border-box;  /* Dégradé linéaire pour la bordure du pouce */
+    border: 4px solid transparent;  /* Bordure du pouce pour plus de visibilité */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Ombre extérieure pour un effet de profondeur */
+}
+
+.descriptif::-webkit-scrollbar-thumb:active {
+    background: var(--glow);  /* Couleur du pouce de la barre de défilement lorsqu'il est activé */
+    border: 4px solid transparent;  /* Bordure du pouce pour plus de visibilité */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Ombre extérieure pour un effet de profondeur */
+}

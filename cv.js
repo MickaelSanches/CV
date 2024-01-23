@@ -1,112 +1,92 @@
-// Fonction pour définir les propriétés liées au pointeur
+// Définition de la fonction setPointerProperties qui ajuste les propriétés de position en fonction des coordonnées du curseur
 const setPointerProperties = (element, x, y) => {
-  // Calcul des coordonnées normalisées entre 0 et 1
+  // Calcul des ratios par rapport à la taille de la fenêtre
   const xp = (x / window.innerWidth).toFixed(2);
   const yp = (y / window.innerHeight).toFixed(2);
 
-  // Définition des propriétés CSS personnalisées pour le déplacement du pointeur
+  // Configuration des propriétés de position pour l'élément donné
   element.style.setProperty('--x', x.toFixed(2));
   element.style.setProperty('--xp', xp);
   element.style.setProperty('--y', y.toFixed(2));
   element.style.setProperty('--yp', yp);
 };
 
-// Fonction pour synchroniser le pointeur avec les éléments spécifiques
+// Fonction syncPointer qui synchronise la position du curseur sur différents éléments de la page
 const syncPointer = ({ x: pointerX, y: pointerY }) => {
-  // Synchronisation des propriétés du pointeur avec le document
+  // Synchronisation de la position du curseur sur le document
   setPointerProperties(document.documentElement, pointerX, pointerY);
 
-  // Synchronisation avec les boutons de la barre de navigation
+  // Synchronisation de la position du curseur sur les boutons de la barre de navigation
   document.querySelectorAll('.header-button').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 
-  // Synchronisation avec les éléments marqués pour le lueur
+  // Synchronisation de la position du curseur sur les éléments avec attribut data-glow dans la section info
   document.querySelectorAll('.info [data-glow]').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 
-  // Synchronisation avec les nouvelles sections (formation, compétences, projets, intérêts)
+  // Synchronisation de la position du curseur sur les éléments avec attribut data-glow dans la section formation
   document.querySelectorAll('.formation info [data-glow]').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 
+  // Synchronisation de la position du curseur sur les éléments avec attribut data-glow dans la section compétences
   document.querySelectorAll('.competences info [data-glow]').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 
+  // Synchronisation de la position du curseur sur les éléments avec attribut data-glow dans la section projets
   document.querySelectorAll('.projets info [data-glow]').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 
+  // Synchronisation de la position du curseur sur les éléments avec attribut data-glow dans la section intérêts
   document.querySelectorAll('.interets info [data-glow]').forEach((el) => {
     setPointerProperties(el, pointerX, pointerY);
   });
 };
 
-// Ajout d'un écouteur d'événement pour le mouvement du pointeur
+// Écouteur d'événement pour mettre à jour la position du curseur lorsqu'il se déplace
 document.body.addEventListener('pointermove', syncPointer);
 
-// Fonction pour basculer la visibilité de la description
+// Fonction toggleDescription pour basculer l'ouverture/fermeture de la description d'un job
 const toggleDescription = (button, description) => {
-  // Basculement des classes pour la visibilité
+  // Basculement des classes pour montrer ou cacher la description
   description.classList.toggle('open');
   button.classList.toggle('open');
+
+  // Vérification de l'état actuel de la description
   const isOpen = description.classList.contains('open');
-  // Mise à jour du texte du bouton en fonction de la visibilité
+
+  // Modification du texte du bouton en fonction de l'état de la description
   button.textContent = isOpen ? 'Masquer le descriptif' : 'Voir le descriptif';
 };
 
-// Ajout d'écouteurs d'événements pour les boutons de basculement
+// Écouteurs d'événement pour chaque bouton de bascule dans la section des jobs
 document.querySelectorAll('.toggle-button').forEach((button) => {
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
+    // Recherche de l'élément job parent du bouton et bascule de la classe 'open'
     const job = this.closest('.job');
     job.classList.toggle('open');
   });
 });
 
-// Import de la bibliothèque GSAP pour les animations
-import gsap from 'https://cdn.skypack.dev/gsap@3.12.0';
-import ScrollTrigger from 'https://cdn.skypack.dev/gsap@3.12.0/ScrollTrigger';
 
-// Vérification de la prise en charge de l'animation par défilement
-if (!CSS.supports('animation-timeline: scroll()')) {
-  // Enregistrement du plugin ScrollTrigger de GSAP
-  gsap.registerPlugin(ScrollTrigger);
+// Ajout d'un écouteur d'événement pour le défilement avec les touches de direction gauche/droite
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    // Décrémentation de l'index de la section actuelle, avec une valeur minimale de 0
+    currentSection = Math.max(0, currentSection - 1);
 
-  // Initialisation des indicateurs de défilement
-  gsap.set('.track__indicators', { aspectRatio: '7 / 1' });
+    // Défilement vers la nouvelle section
+    scrollToSection(currentSection);
+  } else if (e.key === 'ArrowRight') {
+    // Incrémentation de l'index de la section actuelle, avec une valeur maximale égale au nombre total d'articles
+    currentSection = Math.min(articles.length - 1, currentSection + 1);
 
-  // Sélection des indicateurs et des articles pour la section
-  const indicators = document.querySelectorAll('.indicator');
-  const articles = document.querySelectorAll('article');
-  let currentSection = 0;
-
-  // Fonction pour faire défiler jusqu'à la section correspondante
-  const scrollToSection = (index) => {
-    const scrollX = articles[index].offsetLeft;
-    window.scrollTo({
-      left: scrollX,
-      behavior: 'smooth'
-    });
-  };
-
-  // Ajout des écouteurs d'événements pour les indicateurs
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      scrollToSection(index);
-    });
-  });
-
-  // Fonction pour faire défiler avec les flèches du clavier
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      currentSection = Math.max(0, currentSection - 1);
-      scrollToSection(currentSection);
-    } else if (e.key === 'ArrowRight') {
-      currentSection = Math.min(articles.length - 1, currentSection + 1);
-      scrollToSection(currentSection);
-    }
-  });
-}
+    // Défilement vers la nouvelle section
+    scrollToSection(currentSection);
+  }
+});
 

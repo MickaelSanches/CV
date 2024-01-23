@@ -1,0 +1,131 @@
+/* ===========================
+    INFORMATIONS PERSONNELLES
+============================== */
+
+/* Styles pour le titre "Informations personnelles" */
+.infos.personnelles h2 {
+    padding-top: 30px; /* Espacement en haut du titre */
+    text-align: center; /* Alignement central du texte */
+}
+
+/* ========================
+    A PROPOS DE MOI
+========================== */
+
+/* Styles pour le titre "À propos de moi" */
+.a.propos h2 {
+    padding-top: 40px; /* Espacement en haut du titre */
+    text-align: center; /* Alignement central du texte */
+}
+
+
+/* ========================
+    INFORMATIONS
+========================== */
+
+/* Effet sur les titres des sections "Informations personnelles" et "À propos de moi" */
+.infos.personnelles h2,
+.a.propos h2 {
+    position: relative; /* Position relative pour les pseudo-éléments */
+    display: inline-block; /* Affichage en ligne avec bloc de réserve */
+    font-size: 1.5em; /* Taille du texte */
+}
+
+/* Pseudo-élément :before pour l'effet de soulignement en bas du titre */
+.infos.personnelles h2::before,
+.a.propos h2::before {
+    content: ""; /* Contenu vide */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    width: 100%; /* Pleine largeur */
+    height: 10%; /* Hauteur de la ligne de soulignement */
+    bottom: 0; /* Alignement en bas */
+    left: 0; /* Alignement à gauche */
+    background: linear-gradient(90deg, transparent, #fff, transparent); /* Dégradé horizontal pour l'effet de soulignement */
+    z-index: -1; /* Empilement en arrière-plan */
+}
+
+/* Pseudo-élément :after pour l'effet de soulignement en haut du titre */
+.infos.personnelles h2::after,
+.a.propos h2::after {
+    content: ""; /* Contenu vide */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    width: 100%; /* Pleine largeur */
+    height: 10%; /* Hauteur de la ligne de soulignement */
+    top: 0; /* Alignement en haut */
+    left: 0; /* Alignement à gauche */
+    background: linear-gradient(270deg, transparent, #fff, transparent); /* Dégradé horizontal pour l'effet de soulignement */
+    z-index: -1; /* Empilement en arrière-plan */
+}
+
+/* Styles pour les informations personnelles */
+.info {
+    display: flex; /* Affichage en mode flex */
+    justify-content: space-evenly; /* Espacement équitable des éléments horizontalement */
+    align-items: center; /* Centrage vertical des éléments */
+}
+
+/* Définition des variables CSS globales */
+:root {
+    --backdrop: hsl(0 0% 60% / 0.12); /* Couleur de fond avec flou pour les cartes */
+    --radius: 14; /* Rayon de bordure des cartes */
+    --border: 3; /* Largeur de la bordure des cartes */
+    --backup-border: var(--backdrop); /* Couleur de secours pour la bordure */
+    --info--size: 200; /* Taille par défaut des cartes */
+}
+
+/* Styles généraux pour les articles (cartes) */
+article {
+    aspect-ratio: 3 / 4; /* Ratio d'aspect des cartes */
+    border-radius: calc(var(--radius) * 1px); /* Bordure arrondie des cartes */
+    width: 260px; /* Largeur des cartes */
+    position: relative; /* Position relative pour les éléments fils */
+    grid-template-rows: 1fr auto; /* Configuration de la grille pour les cartes */
+    box-shadow: 0 1rem 2rem -1rem black; /* Ombre portée des cartes */
+    padding: 1rem; /* Espacement interne des cartes */
+    display: grid; /* Affichage en mode grille */
+    gap: 1rem; /* Espacement entre les éléments de la grille */
+    backdrop-filter: blur(calc(var(--cardblur, 5) * 1px)); /* Flou de l'arrière-plan avec filtre */
+}
+
+/* Styles spécifiques pour l'effet de lueur sur les éléments avec l'attribut data-glow */
+[data-glow] {
+    --border-size: calc(var(--border, 2) * 1px); /* Largeur de la bordure avec conversion en pixels */
+    --spotlight-size: calc(var(--info--size, 150) * 1px); /* Taille de l'effet de projecteur avec conversion en pixels */
+    --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0))); /* Calcul de la teinte en fonction de la position horizontale du curseur */
+    background-image: radial-gradient(var(--spotlight-size) var(--spotlight-size) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+            hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)), transparent);
+    background-color: var(--backdrop, transparent); /* Couleur de fond avec flou pour les éléments avec l'attribut data-glow */
+    background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size))); /* Taille de l'arrière-plan avec prise en compte de la bordure */
+    background-position: 50% 50%; /* Position de l'arrière-plan au centre */
+    background-attachment: fixed; /* Arrière-plan fixe lors du défilement */
+    border: var(--border-size) solid var(--backup-border); /* Bordure avec couleur de secours */
+    position: relative; /* Position relative pour les éléments avec l'attribut data-glow */
+    touch-action: none; /* Désactivation de l'action tactile pour éviter les interférences */
+}
+
+/* Pseudo-éléments :before et :after pour l'effet de bordure et de lueur externe */
+[data-glow]::before,
+[data-glow]::after {
+    pointer-events: none; /* Désactivation de la capture d'événements pour les pseudo-éléments */
+    content: ""; /* Contenu vide */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    inset: calc(var(--border-size) * -1); /* Décalage négatif pour étendre les pseudo-éléments au-delà de l'élément parent */
+    border: var(--border-size) solid transparent; /* Bordure transparente */
+    border-radius: calc(var(--radius) * 1px); /* Bordure arrondie */
+    background-attachment: fixed; /* Arrière-plan fixe lors du défilement pour les pseudo-éléments */
+    background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size))); /* Taille de l'arrière-plan avec prise en compte de la bordure */
+    background-repeat: no-repeat; /* Pas de répétition de l'arrière-plan */
+    background-position: 50% 50%; /* Position de l'arrière-plan au centre */
+    mask:
+        linear-gradient(transparent, transparent), /* Dégradé linéaire transparent pour masquer une partie du pseudo-élément */
+        linear-gradient(white, white); /* Dégradé linéaire blanc pour créer la forme du pseudo-élément */
+    mask-clip: padding-box, border-box; /* Utilisation du masque sur la zone intérieure et extérieure du pseudo-élément */
+    mask-composite: intersect; /* Composition du masque en mode intersection */
+}
+
+/* Pseudo-élément :before pour l'effet de projecteur de lueur */
+[data-glow]::before {
+    background-image: radial-gradient(calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+            hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%);
+    filter: brightness(2); /* Ajustement de la luminosité pour l'effet de projecteur */
+}

@@ -1,0 +1,211 @@
+/* ========================
+    COMPETENCES
+========================== */
+
+
+/* Définition des compétences avec une teinte de couleur spécifique */
+.competences {
+    --hue: 200;  /* Définition de la teinte principale pour les compétences */
+}
+
+/* Styles pour la barre de défilement des compétences */
+.scroll-container {
+    overflow-y: auto;  /* Activation de la barre de défilement vertical en cas de dépassement du contenu */
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    flex-direction: column;  /* Alignement vertical des compétences */
+    gap: 1rem;  /* Espacement entre les compétences */
+    max-height: 200px;  /* Hauteur maximale de la barre de défilement */
+    padding-bottom: 16px;  /* Marge inférieure pour éviter de cacher partiellement la dernière compétence */
+}
+
+/* Styles pour chaque compétence */
+.competence-item {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    align-items: center;  /* Alignement vertical au centre des éléments de compétence */
+    text-align: center;  /* Alignement horizontal au centre du texte de compétence */
+    white-space: nowrap;  /* Empêcher le retour à la ligne pour le texte de compétence */
+}
+
+/* Styles pour l'icône associée à chaque compétence */
+.competence-item img {
+    width: 25px;  /* Largeur fixe de l'icône de compétence */
+    height: 25px;  /* Hauteur fixe de l'icône de compétence */
+    margin-right: 8px;  /* Marge à droite de l'icône pour l'espacement */
+}
+
+/* Réglages pour le paragraphe associé à chaque compétence */
+.competence-item p {
+    margin: 0;  /* Suppression de la marge autour du texte de compétence */
+}
+
+/* Définir les couleurs de la barre de défilement */
+.scroll-container::-webkit-scrollbar {
+    width: 10px;  /* Largeur de la barre de défilement */
+}
+
+/* Styles pour le pouce de la barre de défilement */
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 5px;  /* Arrondi des coins du pouce */
+}
+
+/* Styles pour la piste de la barre de défilement */
+.scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100;  /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
+    border-radius: 5px;  /* Arrondi des coins de la piste */
+}
+
+
+
+/* ========================
+    PROJETS
+========================== */
+
+/* Définition des projets avec une teinte de couleur spécifique */
+.projets {
+    --hue: 40;  /* Définition de la teinte principale pour les projets */
+}
+
+/* Styles pour chaque élément de projet */
+.project-item {
+    margin-top: 20px;  /* Marge supérieure pour séparer les projets */
+    max-height: 150px;  /* Hauteur maximale pour la section de projets avec barre de défilement si nécessaire */
+    overflow-y: auto;  /* Activation de la barre de défilement vertical en cas de dépassement du contenu */
+    scrollbar-width: thin;  /* Epaisseur de la barre de défilement pour les navigateurs qui ne supportent pas WebKit */
+    scrollbar-color: var(--glow) transparent;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+}
+
+/* Définir les couleurs de la barre de défilement du projet */
+.project-item::-webkit-scrollbar {
+    width: 8px;  /* Largeur de la barre de défilement */
+}
+
+/* Styles pour le pouce de la barre de défilement du projet */
+.project-item::-webkit-scrollbar-thumb {
+    background-color: var(--glow);  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 1rem;  /* Arrondi important des coins du pouce */
+    border: 2px solid transparent;  /* Bordure du pouce pour plus de visibilité */
+}
+
+/* Styles pour la piste de la barre de défilement du projet */
+.project-item::-webkit-scrollbar-track {
+    background-color: transparent;  /* Fond transparent de la piste de la barre de défilement */
+}
+
+
+
+/* ========================
+    INTERETS
+========================== */
+
+
+/* Définition des centres d'intérêt avec une teinte de couleur spécifique */
+.interets {
+    --hue: 280;  /* Définition de la teinte principale pour les centres d'intérêt */
+}
+
+/* Styles pour la barre de défilement dans Centre d'intérêts */
+.interets .scroll-container {
+    overflow-y: auto;  /* Activation de la barre de défilement vertical en cas de dépassement du contenu */
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    flex-direction: column;  /* Alignement vertical des centres d'intérêt */
+    gap: 1rem;  /* Espacement entre les centres d'intérêt */
+    max-height: 200px;  /* Hauteur maximale de la barre de défilement */
+    padding-bottom: 16px;  /* Marge inférieure pour éviter de cacher partiellement le dernier centre d'intérêt */
+}
+
+/* Styles pour chaque centre d'intérêt */
+.interets .interet-item {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    align-items: center;  /* Alignement vertical au centre des éléments de centre d'intérêt */
+    text-align: center;  /* Alignement horizontal au centre du texte de centre d'intérêt */
+    white-space: nowrap;  /* Empêcher le retour à la ligne pour le texte de centre d'intérêt */
+}
+
+/* Styles pour l'icône associée à chaque centre d'intérêt */
+.interets .interet-item img {
+    width: 25px;  /* Largeur fixe de l'icône de centre d'intérêt */
+    height: 25px;  /* Hauteur fixe de l'icône de centre d'intérêt */
+    margin-right: 8px;  /* Marge à droite de l'icône pour l'espacement */
+}
+
+/* Réglages pour le paragraphe associé à chaque centre d'intérêt */
+.interets .interet-item p {
+    margin: 0;  /* Suppression de la marge autour du texte de centre d'intérêt */
+}
+
+/* Styles pour la barre de défilement */
+.interets .scroll-container::-webkit-scrollbar {
+    width: 8px;  /* Largeur de la barre de défilement */
+}
+
+/* Styles pour le pouce de la barre de défilement */
+.interets .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 4px;  /* Arrondi des coins du pouce */
+}
+
+/* Styles pour la piste de la barre de défilement */
+.interets .scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100;  /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
+    border-radius: 4px;  /* Arrondi des coins de la piste */
+}
+
+
+
+/* ========================
+    LANGUES
+========================== */
+
+
+/* Définition des langues avec une teinte de couleur spécifique */
+.langues {
+    --hue: 360;  /* Définition de la teinte principale pour les langues */
+}
+
+/* Styles pour la barre de défilement des langues */
+.langues .scroll-container {
+    overflow-y: auto;  /* Activation de la barre de défilement vertical en cas de dépassement du contenu */
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    flex-direction: column;  /* Alignement vertical des langues */
+    gap: 1rem;  /* Espacement entre les langues */
+    max-height: 200px;  /* Hauteur maximale de la barre de défilement */
+    padding-bottom: 16px;  /* Marge inférieure pour éviter de cacher partiellement la dernière langue */
+}
+
+/* Styles pour chaque langue */
+.langues .langue-item {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    align-items: center;  /* Alignement vertical au centre des éléments de langue */
+    text-align: center;  /* Alignement horizontal au centre du texte de langue */
+    white-space: nowrap;  /* Empêcher le retour à la ligne pour le texte de langue */
+}
+
+/* Styles pour l'icône associée à chaque langue */
+.langues .langue-item img {
+    width: 25px;  /* Largeur fixe de l'icône de langue */
+    height: 25px;  /* Hauteur fixe de l'icône de langue */
+    margin-right: 8px;  /* Marge à droite de l'icône pour l'espacement */
+}
+
+/* Réglages pour le paragraphe associé à chaque langue */
+.langues .langue-item p {
+    margin: 0;  /* Suppression de la marge autour du texte de langue */
+}
+
+/* Styles pour la barre de défilement */
+.langues .scroll-container::-webkit-scrollbar {
+    width: 8px;  /* Largeur de la barre de défilement */
+}
+
+/* Styles pour le pouce de la barre de défilement */
+.langues .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 4px;  /* Arrondi des coins du pouce */
+}
+
+/* Styles pour la piste de la barre de défilement */
+.langues .scroll-container::-webkit-scrollbar-track {
+    background-color: #ecf0f100;  /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
+    border-radius: 4px;  /* Arrondi des coins de la piste */
+}

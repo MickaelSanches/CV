@@ -1,0 +1,47 @@
+/* ========================
+    FORMATIONS
+========================== */
+.formation,
+.competences,
+.projets,
+.interets,
+.langues {
+    position: relative;  /* Position relative pour l'ancrage des éléments enfants */
+    aspect-ratio: 3 / 4;  /* Ratio aspect pour maintenir la forme rectangulaire */
+    border-radius: calc(var(--radius) * 1px);  /* Rayon de bordure en fonction de la variable --radius */
+    width: 260px;  /* Largeur fixe de la section */
+    position: relative;  /* Position relative pour les positionnements internes */
+    grid-template-rows: 1fr auto;  /* Utilisation d'une grille avec une ligne pour le contenu et une pour le pied de page */
+    box-shadow: 0 1rem 2rem -1rem black;  /* Ombre pour donner de la profondeur à la section */
+    padding: 1rem;  /* Marge intérieure de la section */
+    display: grid;  /* Utilisation du modèle de boîte de grille */
+    justify-content: start;  /* Alignement du contenu au début de la grille */
+    align-items: center;  /* Alignement vertical au centre de la grille */
+    gap: 1rem;  /* Espacement entre les éléments de la grille */
+    backdrop-filter: blur(calc(var(--cardblur, 5) * 1px));  /* Applique un flou en arrière-plan pour un effet de transparence */
+}
+
+/* Styles pour la section regroupant les compétences, projets, intérêts et langues */
+.competences_projets_interets_language {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    justify-content: space-between;  /* Espacement équitable entre les éléments de la grille */
+    align-items: center;  /* Alignement vertical au centre des éléments */
+    margin: 100px;  /* Marge autour de la section pour l'espacement avec d'autres éléments */
+}
+
+/* Styles pour la section des formations */
+.formations {
+    display: flex;  /* Utilisation du modèle de boîte flexible */
+    justify-content: space-evenly;  /* Espacement équitable entre les éléments de la grille */
+    align-items: center;  /* Alignement vertical au centre des éléments */
+    margin-top: 100px;  /* Marge supérieure pour décaler la section par rapport aux éléments précédents */
+    --hue: 120;  /* Définition de la teinte principale pour la section des formations */
+}
+
+.formations h2 {
+    font-size: 40px; /* Taille de la police du h2 Formations */
+}
+
+.formations p {
+    display: grid;  /* Utilisation du modèle de boîte de grille pour le paragraphe dans la section des formations */
+}

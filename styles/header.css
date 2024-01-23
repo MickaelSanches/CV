@@ -1,0 +1,158 @@
+/* ========================
+    RESET ET BASE STYLES
+========================== */
+
+/* Reset des styles de la boîte du modèle pour tous les éléments */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+/* Styles de base pour le corps de la page */
+body {
+    background-color: #222; /* Fond sombre */
+    inset: 0; /* Ajustement de la marge */
+    margin: 0; /* Suppression des marges par défaut du navigateur */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Police par défaut */
+    color: white; /* Couleur du texte */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+
+/* ========================
+    TYPOGRAPHIE
+========================== */
+
+/* Couleur pour tous les titres de niveau 2 (h2) */
+h2 {
+    color:#CCCCB2; /* Couleur jaune pâle pour les titres h2 */
+}
+
+/* Couleur pour tous les titres de niveau 3 (h3) */
+h3 {
+    color: #d7d2cc; /* Couleur gris clair pour les titres h3 */
+}
+
+
+
+/* ========================
+    HEADER
+========================== */
+
+/* Styles pour l'en-tête de la page */
+header {
+    text-align: center; /* Alignement central du texte dans l'en-tête */
+    color: #fff; /* Texte en blanc */
+    padding: 50px 0; /* Espacement du haut et bas de l'en-tête */
+}
+
+/* Conteneur flex pour l'en-tête */
+.header-container {
+    display: flex;
+    justify-content: space-around; /* Espacement équitable des éléments horizontalement */
+    align-items: center; /* Centrage vertical des éléments */
+}
+
+/* Styles pour l'image dans la partie information de l'en-tête */
+.header-info img {
+    width: 300px; /* Largeur fixe pour l'image d'information */
+    margin-right: 10px; /* Marge à droite de l'image d'information */
+}
+
+/* Styles pour l'image de fond dans l'en-tête */
+.header-background img {
+    width: 250px; /* Largeur fixe pour l'image de fond */
+    height: 250px; /* Hauteur fixe pour l'image de fond */
+    margin-bottom: 20px; /* Marge en bas de l'image de fond */
+}
+
+
+
+
+/* ========================
+    BOUTON
+========================== */
+
+/* Définition des variables globales pour le bouton */
+:root {
+    --x: 0; /* Position horizontale du curseur par défaut */
+    --y: 0; /* Position verticale du curseur par défaut */
+    --xp: 0; /* Ratio de position horizontale du curseur par rapport à la largeur de la fenêtre */
+    --yp: 0; /* Ratio de position verticale du curseur par rapport à la hauteur de la fenêtre */
+    --hue: calc(0 + (var(--xp) * 500)); /* Calcul de la teinte en fonction de la position horizontale du curseur */
+    --bg: hsl(0 0% 10%); /* Couleur de fond du bouton */
+    --size: 100px; /* Taille du bouton par défaut */
+    --glow: radial-gradient(50% 50% at center,
+            hsl(var(--hue) 80% 85%),
+            hsl(var(--hue) 80% 70%),
+            transparent) calc((var(--x) * 1px) - (var(--size) * 0.5)) calc((var(--y) * 1px) - (var(--size) * 0.5)) / var(--size) var(--size) no-repeat fixed; /* Effet de lueur pour le bouton */
+}
+
+/* Styles pour les contrôles de position du bouton */
+.controls {
+    position: fixed;
+    top: 2rem; /* Distance du haut de la fenêtre */
+    right: 2rem; /* Distance de la droite de la fenêtre */
+}
+
+/* Styles généraux du bouton */
+button {
+    font-family: 'Montserrat Alternates', sans-serif; /* Police alternative Montserrat */
+    border-radius: 1rem; /* Bord arrondi du bouton */
+    text-transform: uppercase; /* Texte en majuscules */
+    font-weight: bold; /* Police en gras */
+    letter-spacing: 0.1ch; /* Espacement des lettres */
+    background: var(--bg); /* Couleur de fond du bouton */
+    border: 4px solid transparent; /* Bordure transparente */
+    box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset; /* Ombre intérieure */
+    cursor: pointer; /* Curseur pointeur */
+    font-family: 'Montserrat', sans-serif; /* Police Montserrat */
+    background:
+        linear-gradient(var(--bg), var(--bg)) padding-box,
+        var(--glow),
+        linear-gradient(black, black) border-box; /* Dégradé pour le bouton */
+    transition: background-size 0.24s; /* Transition de la taille du fond du bouton */
+    touch-action: none; /* Désactive les actions tactiles par défaut */
+    position: relative; /* Position relative pour les pseudo-éléments */
+    padding: 1rem 2rem; /* Espacement interne du bouton */
+}
+
+/* Pseudo-élément :before pour l'effet de lueur intérieure */
+button::before {
+    content: ""; /* Contenu vide */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    inset: 0; /* Pleine largeur et hauteur */
+    box-shadow: 0 1px hsl(0 0% 100% / 0.15) inset; /* Ombre intérieure */
+    background: var(--bg); /* Couleur de fond du bouton */
+    z-index: 2; /* Empilement au-dessus du texte du bouton */
+    border-radius: 1rem; /* Bord arrondi */
+}
+
+/* Styles pour le texte du bouton */
+button span {
+    background: var(--glow), white; /* Dégradé pour le texte */
+    background-clip: text; /* Clip le dégradé sur le texte */
+    color: transparent; /* Rend le texte transparent */
+    height: 100%; /* Pleine hauteur */
+    width: 100%; /* Pleine largeur */
+    z-index: 2; /* Empilement au-dessus du texte du bouton */
+    position: relative; /* Position relative par rapport à l'élément parent */
+    inset: 0; /* Pleine largeur et hauteur */
+}
+
+/* Application de la taille du bouton lorsqu'il est activé (clic) */
+:root:has(button:active) {
+    --size: 300px; /* Taille du bouton lorsqu'il est activé */
+}
+
+/* Pseudo-élément :after pour l'effet de lueur externe du bouton lorsqu'il est pressé */
+button::after {
+    content: ""; /* Contenu vide */
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    inset: -4px; /* Décalage de 4px vers l'intérieur */
+    filter: blur(20px); /* Flou gaussien pour l'effet de lueur externe */
+    border: 4px solid transparent; /* Bordure transparente */
+    background: var(--glow); /* Couleur de lueur externe */
+    border-radius: 1rem; /* Bord arrondi */
+}

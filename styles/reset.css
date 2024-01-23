@@ -1,5 +1,5 @@
 /*
-    1. Use a more-intuitive box-sizing model.
+    1. Utiliser un modèle de boîte plus intuitif.
 */
 *,
 *::before,
@@ -8,16 +8,16 @@
 }
 
 /*
-    2. Remove default margin
+    2. Supprimer la marge par défaut
   */
 * {
     margin: 0;
 }
 
 /*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
+    Ajustements typographiques !
+    3. Ajouter un interlignage accessible
+    4. Améliorer le rendu du texte
   */
 body {
     line-height: 1.5;
@@ -25,7 +25,7 @@ body {
 }
 
 /*
-    5. Improve media defaults
+    5. Améliorer les paramètres par défaut des médias
   */
 img,
 picture,
@@ -37,7 +37,7 @@ svg {
 }
 
 /*
-    6. Remove built-in form typography styles
+    6. Supprimer les styles typographiques intégrés pour les formulaires
   */
 input,
 button,
@@ -47,7 +47,7 @@ select {
 }
 
 /*
-    7. Avoid text overflows
+    7. Éviter les débordements de texte
   */
 p,
 h1,
@@ -60,7 +60,7 @@ h6 {
 }
 
 /*
-    8. Create a root stacking context
+    8. Créer un contexte d'empilement racine
   */
 #root,
 #__next {
