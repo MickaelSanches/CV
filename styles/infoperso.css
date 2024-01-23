@@ -8,13 +8,33 @@
     text-align: center; /* Alignement central du texte */
 }
 
+.réseaux {
+    display: flex;
+    align-items: center;
+}
+
+.reseau_git_logo {
+    max-width: 30px; /* La largeur maximale de l'image sera de 100% de la largeur du conteneur parent */
+    height: 22px; /* La hauteur s'ajustera automatiquement pour maintenir les proportions de l'image */
+    margin-left: 10px;
+}
+
+/* Styles pour les informations personnelles */
+.info {
+    display: flex; /* Affichage en mode flex */
+    justify-content: space-evenly; /* Espacement équitable des éléments horizontalement */
+    align-items: center; /* Centrage vertical des éléments */
+}
+
+
+
 /* ========================
     A PROPOS DE MOI
 ========================== */
 
 /* Styles pour le titre "À propos de moi" */
 .a.propos h2 {
-    padding-top: 40px; /* Espacement en haut du titre */
+    padding-top: 50px; /* Espacement en haut du titre */
     text-align: center; /* Alignement central du texte */
 }
 
@@ -55,13 +75,6 @@
     left: 0; /* Alignement à gauche */
     background: linear-gradient(270deg, transparent, #fff, transparent); /* Dégradé horizontal pour l'effet de soulignement */
     z-index: -1; /* Empilement en arrière-plan */
-}
-
-/* Styles pour les informations personnelles */
-.info {
-    display: flex; /* Affichage en mode flex */
-    justify-content: space-evenly; /* Espacement équitable des éléments horizontalement */
-    align-items: center; /* Centrage vertical des éléments */
 }
 
 /* Définition des variables CSS globales */
