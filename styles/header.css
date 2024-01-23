@@ -76,8 +76,8 @@ header {
 
 /* Styles pour l'image de fond dans l'en-tête */
 .header-background img {
-    width: 250px; /* Largeur fixe pour l'image de fond */
-    height: 250px; /* Hauteur fixe pour l'image de fond */
+    width: 350px; /* Largeur fixe pour l'image de fond */
+    height: 350px; /* Hauteur fixe pour l'image de fond */
     margin-bottom: 20px; /* Marge en bas de l'image de fond */
 }
 

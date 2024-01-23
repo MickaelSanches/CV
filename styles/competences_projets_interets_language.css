@@ -38,22 +38,32 @@
     margin: 0;  /* Suppression de la marge autour du texte de compétence */
 }
 
-/* Définir les couleurs de la barre de défilement */
-.scroll-container::-webkit-scrollbar {
-    width: 10px;  /* Largeur de la barre de défilement */
+/* Styles pour la barre de défilement */
+.scroll-container {
+    overflow: hidden; /* Cache la scrollbar par défaut */
+    position: relative;
+}
+
+.scroll-container:hover {
+    overflow-y: scroll; /* Affiche la scrollbar lors du survol */
 }
 
 /* Styles pour le pouce de la barre de défilement */
+.scroll-container::-webkit-scrollbar {
+    width: 5px; /* Largeur de la barre de défilement */
+}
+
 .scroll-container::-webkit-scrollbar-thumb {
-    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
-    border-radius: 5px;  /* Arrondi des coins du pouce */
+    background-color: #ffffff; /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 5px; /* Arrondi des coins du pouce */
 }
 
 /* Styles pour la piste de la barre de défilement */
 .scroll-container::-webkit-scrollbar-track {
-    background-color: #ecf0f100;  /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
-    border-radius: 5px;  /* Arrondi des coins de la piste */
+    background-color: #ecf0f100; /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
+    border-radius: 5px; /* Arrondi des coins de la piste */
 }
+
 
 
 
@@ -75,22 +85,32 @@
     scrollbar-color: var(--glow) transparent;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
 }
 
-/* Définir les couleurs de la barre de défilement du projet */
-.project-item::-webkit-scrollbar {
-    width: 8px;  /* Largeur de la barre de défilement */
+/* Styles pour la barre de défilement du projet */
+.project-item {
+    overflow: hidden; /* Cache la scrollbar par défaut */
+    position: relative;
+}
+
+.project-item:hover {
+    overflow-y: scroll; /* Affiche la scrollbar lors du survol */
 }
 
 /* Styles pour le pouce de la barre de défilement du projet */
+.project-item::-webkit-scrollbar {
+    width: 5px; /* Largeur de la barre de défilement */
+}
+
 .project-item::-webkit-scrollbar-thumb {
-    background-color: var(--glow);  /* Couleur du pouce de la barre de défilement avec une légère transparence */
-    border-radius: 1rem;  /* Arrondi important des coins du pouce */
-    border: 2px solid transparent;  /* Bordure du pouce pour plus de visibilité */
+    background-color: white; /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 1rem; /* Arrondi important des coins du pouce */
+    border: 2px solid transparent; /* Bordure du pouce pour plus de visibilité */
 }
 
 /* Styles pour la piste de la barre de défilement du projet */
 .project-item::-webkit-scrollbar-track {
-    background-color: transparent;  /* Fond transparent de la piste de la barre de défilement */
+    background-color: transparent; /* Fond transparent de la piste de la barre de défilement */
 }
+
 
 
 
@@ -141,7 +161,7 @@
 
 /* Styles pour le pouce de la barre de défilement */
 .interets .scroll-container::-webkit-scrollbar-thumb {
-    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    background-color: #ffffff00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
     border-radius: 4px;  /* Arrondi des coins du pouce */
 }
 
@@ -194,18 +214,28 @@
 }
 
 /* Styles pour la barre de défilement */
-.langues .scroll-container::-webkit-scrollbar {
-    width: 8px;  /* Largeur de la barre de défilement */
+.langues .scroll-container {
+    overflow: hidden; /* Cache la scrollbar par défaut */
+    position: relative;
+    transition: overflow 0.5s ease; /* Ajoute une transition de 0.5 seconde avec une fonction d'accélération (ease) */
+}
+
+.langues .scroll-container:hover {
+    overflow-y: scroll; /* Affiche la scrollbar lors du survol */
 }
 
 /* Styles pour le pouce de la barre de défilement */
+.langues .scroll-container::-webkit-scrollbar {
+    width: 5px; /* Largeur de la barre de défilement */
+}
+
 .langues .scroll-container::-webkit-scrollbar-thumb {
-    background-color: #3498db00;  /* Couleur du pouce de la barre de défilement avec une légère transparence */
-    border-radius: 4px;  /* Arrondi des coins du pouce */
+    background-color: #ffffff; /* Couleur du pouce de la barre de défilement avec une légère transparence */
+    border-radius: 4px; /* Arrondi des coins du pouce */
 }
 
 /* Styles pour la piste de la barre de défilement */
 .langues .scroll-container::-webkit-scrollbar-track {
-    background-color: #ecf0f100;  /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
-    border-radius: 4px;  /* Arrondi des coins de la piste */
+    background-color: #ecf0f100; /* Couleur de fond de la piste de la barre de défilement avec une légère transparence */
+    border-radius: 4px; /* Arrondi des coins de la piste */
 }
