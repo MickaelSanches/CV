@@ -15,6 +15,20 @@
     height: 50vh;  /* Hauteur égale à la moitié de la hauteur de la fenêtre */
 }
 
+ul::-webkit-scrollbar {
+    height: 5px; /* width of the entire scrollbar */
+}
+
+ul::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* color of the tracking area */
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid rgba(0, 0, 0, 0); /* creates padding around scroll thumb */
+}
+
 .track h2 {
     font-size: 40px;  /* Taille de police pour le titre h2 des expériences */
 }
