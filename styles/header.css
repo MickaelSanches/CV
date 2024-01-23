@@ -98,7 +98,6 @@ header {
 
 /* Styles généraux du bouton */
 button {
-    font-family: 'Montserrat Alternates', sans-serif; /* Police alternative Montserrat */
     border-radius: 1rem; /* Bord arrondi du bouton */
     text-transform: uppercase; /* Texte en majuscules */
     font-weight: bold; /* Police en gras */
